@@ -1,0 +1,42 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.4'
+    }
+}
+
+group 'br.com.devsrsouza.simpleftpserver'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+sourceCompatibility = targetCompatibility = "1.8"
+compileJava {
+    sourceCompatibility = targetCompatibility = "1.8"
+}
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'com.guichaguri:minimalftp:1.0.4'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'br.com.devsrsouza.simpleftpserver.SimpleFTPServer'
+    }
+}
+
+shadowJar {
+    baseName = 'SimpleFTPServer'
+    classifier = null
+    version = null
+
+    dependencies {
+        include dependency('com.guichaguri:minimalftp:1.0.4')
+    }
+}
