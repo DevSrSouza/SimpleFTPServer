@@ -26,20 +26,11 @@ public class SimpleFTPServer {
             server.setAuthenticator(auth);
 
             try {
-                server.listen(21);
+                server.listenSync(21);
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-            System.out.println(server.getAddress());
-
-            while (true) {
-                try {
-                    Thread.currentThread().sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
         } else {
             System.out.println("[folder] [user] [password]");
         }
