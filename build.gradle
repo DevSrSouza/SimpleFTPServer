@@ -8,10 +8,12 @@ buildscript {
 }
 
 group 'br.com.devsrsouza.simpleftpserver'
-version '1.0.1-SNAPSHOT'
+version '1.0.1'
 
 apply plugin: 'java'
 apply plugin: 'com.github.johnrengelman.shadow'
+
+def minimalFtp = 'com.guichaguri:minimalftp:1.0.6'
 
 sourceCompatibility = targetCompatibility = "1.8"
 compileJava {
@@ -22,7 +24,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.guichaguri:minimalftp:1.0.4'
+    compile minimalFtp
 }
 
 jar {
@@ -37,6 +39,6 @@ shadowJar {
     version = null
 
     dependencies {
-        include dependency('com.guichaguri:minimalftp:1.0.4')
+        include dependency(minimalFtp)
     }
 }
