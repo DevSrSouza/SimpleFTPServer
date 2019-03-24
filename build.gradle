@@ -8,7 +8,7 @@ buildscript {
 }
 
 group 'br.com.devsrsouza.simpleftpserver'
-version '1.0.1'
+version '1.0.2-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'com.github.johnrengelman.shadow'
